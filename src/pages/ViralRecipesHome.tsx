@@ -1,17 +1,17 @@
 import { ChefHat, Video, Search, Heart, ShoppingCart, Calendar, Download, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-function Home() {
+function ViralRecipesHome() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
       <header className="bg-white shadow-sm sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
-            <div className="flex items-center space-x-3">
+            <Link to="/" className="flex items-center space-x-3">
               <img src="/ViralRecipes.png" alt="Viral Recipes" className="w-10 h-10 rounded-xl" />
               <span className="text-2xl font-bold text-gray-900">Viral Recipes</span>
-            </div>
+            </Link>
             <button className="px-6 py-2 rounded-full text-white font-medium flex items-center space-x-2 transition-colors" style={{backgroundColor: '#04a539'}} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#038a30'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#04a539'}>
               <Download className="w-4 h-4" />
               <span>Get Started</span>
@@ -153,8 +153,8 @@ function Home() {
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
               <p className="text-gray-400">© 2025 Viral Recipes. All rights reserved.</p>
               <div className="flex space-x-6">
-                <Link to="/privacy-policy" className="text-gray-400 hover:text-white transition-colors text-sm">Privacy Policy</Link>
-                      <Link to="/terms-of-use" className="text-gray-400 hover:text-white transition-colors text-sm">Terms & Conditions</Link>
+                <Link to="/viral-recipes/privacy-policy" className="text-gray-400 hover:text-white transition-colors text-sm">Privacy Policy</Link>
+                <Link to="/viral-recipes/terms-of-use" className="text-gray-400 hover:text-white transition-colors text-sm">Terms & Conditions</Link>
               </div>
             </div>
           </div>
@@ -164,4 +164,5 @@ function Home() {
   );
 }
 
-export default Home;
+export default ViralRecipesHome;
+
