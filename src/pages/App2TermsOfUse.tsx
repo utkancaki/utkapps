@@ -3,7 +3,27 @@ import { Link } from 'react-router-dom';
 
 function App2TermsOfUse() {
   useEffect(() => {
-    document.title = 'TOEFL1001';
+    document.title = 'TOEFL® 1001';
+    
+    // Change favicon to TOEFL icon
+    const link = document.querySelector("link[rel~='icon']") as HTMLLinkElement;
+    if (link) {
+      link.href = '/TOEFL1001.png';
+    } else {
+      const newLink = document.createElement('link');
+      newLink.rel = 'icon';
+      newLink.type = 'image/png';
+      newLink.href = '/TOEFL1001.png';
+      document.head.appendChild(newLink);
+    }
+    
+    // Cleanup: restore default favicon when component unmounts
+    return () => {
+      const defaultLink = document.querySelector("link[rel~='icon']") as HTMLLinkElement;
+      if (defaultLink) {
+        defaultLink.href = '/ViralRecipes.png';
+      }
+    };
   }, []);
   return (
     <div className="min-h-screen bg-white">
