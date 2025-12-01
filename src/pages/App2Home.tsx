@@ -1,7 +1,56 @@
-import { BookOpen, GraduationCap, Calendar, Trophy, Bookmark, Sparkles, Download } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { BookOpen, GraduationCap, Calendar, Trophy, Bookmark, Sparkles, Download, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 function App2Home() {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+  useEffect(() => {
+    document.title = 'TOEFL® 1001';
+  }, []);
+
+  const toggleFaq = (index: number) => {
+    setOpenFaq(openFaq === index ? null : index);
+  };
+
+  const faqs = [
+    {
+      question: "How many words are included in TOEFL® 1001?",
+      answer: "The app includes 1001 essential TOEFL® vocabulary words, carefully selected based on their frequency in TOEFL exams. These words are organized into Beginner, Intermediate, and Advanced levels to help you learn progressively."
+    },
+    {
+      question: "Is the app free to download?",
+      answer: "Yes, TOEFL® 1001 is free to download from the App Store. The app offers core features at no cost, and there may be optional premium features available through in-app purchases."
+    },
+    {
+      question: "Does the app guarantee a higher TOEFL® score?",
+      answer: "While TOEFL® 1001 is designed to help you master essential vocabulary, we cannot guarantee a specific score increase. The app provides structured learning tools and practice, but your final score depends on various factors including overall English proficiency, test-taking skills, and preparation time."
+    },
+    {
+      question: "Can I use the app offline?",
+      answer: "Yes, once downloaded, the core vocabulary content and flashcard features work offline. You can study and practice words without an internet connection, making it perfect for learning on the go."
+    },
+    {
+      question: "How are the words organized?",
+      answer: "Words are categorized into three difficulty levels: Beginner, Intermediate, and Advanced. This allows you to start with foundational vocabulary and gradually progress to more complex words. You can also bookmark difficult words for focused review."
+    },
+    {
+      question: "Is this app suitable for beginners?",
+      answer: "Absolutely! TOEFL® 1001 is designed for learners at all levels. The Beginner level provides a solid foundation, and the structured approach helps you build vocabulary systematically, regardless of your starting point."
+    },
+    {
+      question: "What makes this app different from other TOEFL vocabulary apps?",
+      answer: "TOEFL® 1001 focuses on the 1001 most essential words, avoiding overwhelming you with thousands of words. The clean, focused design minimizes distractions, and features like Word of the Day and bookmarking help you build consistent learning habits."
+    },
+    {
+      question: "Can I track my progress?",
+      answer: "Yes, the app includes achievement tracking and progress milestones. You can see how many words you've learned, track your daily practice, and earn badges as you reach vocabulary learning milestones."
+    },
+    {
+      question: "How can I get additional support?",
+      answer: "If you have any questions, concerns, or need additional support, please don't hesitate to reach out to us at appsutk@gmail.com. We're here to help and will respond to your inquiries as soon as possible."
+    }
+  ];
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
@@ -12,10 +61,24 @@ function App2Home() {
               <img src="/TOEFL1001.png" alt="TOEFL® 1001" className="w-10 h-10 rounded-xl" />
               <span className="text-2xl font-bold text-gray-900">TOEFL® 1001</span>
             </Link>
-            <button className="px-6 py-2 rounded-full text-white font-medium flex items-center space-x-2 transition-colors" style={{backgroundColor: '#8E44AD'}} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#6A3480'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#8E44AD'}>
-              <Download className="w-4 h-4" />
-              <span>Get Started</span>
-            </button>
+            <div className="flex items-center space-x-4">
+              <Link to="/TOEFL1001/privacy-policy" className="text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium">
+                Privacy Policy
+              </Link>
+              <Link to="/TOEFL1001/terms-of-use" className="text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium">
+                Terms & Conditions
+              </Link>
+              <a href="#faq" className="text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium">
+                FAQ
+              </a>
+              <a href="mailto:appsutk@gmail.com" className="text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium">
+                Support
+              </a>
+              <button className="px-6 py-2 rounded-full text-white font-medium flex items-center space-x-2 transition-colors" style={{backgroundColor: '#8E44AD'}} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#6A3480'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#8E44AD'}>
+                <Download className="w-4 h-4" />
+                <span>Get Started</span>
+              </button>
+            </div>
           </div>
         </div>
       </header>
@@ -27,7 +90,7 @@ function App2Home() {
             <div className="space-y-8">
               <div className="space-y-4">
                 <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                  2026 TOEFL® New Format.
+                  TOEFL® 1001
                 </h1>
                 <p className="text-2xl font-semibold text-gray-700 leading-relaxed">
                   The fastest, simplest, and most effective way to master TOEFL vocabulary.
@@ -36,7 +99,7 @@ function App2Home() {
                   TOEFL® 1001 is a complete TOEFL® vocabulary practice app designed for anyone preparing for the TOEFL® exam. It includes 1001 essential TOEFL words, carefully categorized into Beginner, Intermediate, and Advanced levels, allowing you to learn step-by-step and build lasting vocabulary mastery.
                 </p>
                 <p className="text-lg text-gray-600 leading-relaxed">
-                  Whether you're aiming for a higher TOEFL score or strengthening your academic English, this app provides structured flashcard practice, daily Word of the Day, and tools to bookmark difficult words for focused review.
+                  Whether you're aiming for a higher TOEFL® score or strengthening your academic English, this app provides structured flashcard practice, daily Word of the Day, and tools to bookmark difficult words for focused review.
                 </p>
               </div>
               
@@ -61,7 +124,7 @@ function App2Home() {
           <div className="text-center space-y-4 mb-16">
             <h2 className="text-4xl font-bold text-gray-900">Powerful Features</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Everything you need to master TOEFL vocabulary and achieve your target score
+              Everything you need to master TOEFL® vocabulary and achieve your target score
             </p>
           </div>
 
@@ -69,8 +132,8 @@ function App2Home() {
             {[
               {
                 icon: BookOpen,
-                title: "1001 Essential TOEFL Words",
-                description: "Learn the most important and frequently tested TOEFL vocabulary.",
+                title: "1001 Essential TOEFL® Words",
+                description: "Learn the most important and frequently tested TOEFL® vocabulary.",
                 color: "purple"
               },
               {
@@ -82,7 +145,7 @@ function App2Home() {
               {
                 icon: Calendar,
                 title: "Word of the Day",
-                description: "Build a daily learning habit with a new curated TOEFL word each day.",
+                description: "Build a daily learning habit with a new curated TOEFL® word each day.",
                 color: "purple"
               },
               {
@@ -116,12 +179,45 @@ function App2Home() {
         </div>
       </section>
 
+      {/* FAQ Section */}
+      <section id="faq" className="py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center space-y-4 mb-16">
+            <h2 className="text-4xl font-bold text-gray-900">Frequently Asked Questions</h2>
+            <p className="text-xl text-gray-600">
+              Everything you need to know about TOEFL® 1001
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            {faqs.map((faq, index) => (
+              <div key={index} className="border border-gray-200 rounded-lg overflow-hidden">
+                <button
+                  onClick={() => toggleFaq(index)}
+                  className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors"
+                >
+                  <span className="font-semibold text-gray-900 pr-8">{faq.question}</span>
+                  <ChevronDown 
+                    className={`w-5 h-5 text-gray-500 flex-shrink-0 transition-transform ${openFaq === index ? 'transform rotate-180' : ''}`}
+                  />
+                </button>
+                {openFaq === index && (
+                  <div className="px-6 py-4 bg-gray-50 border-t border-gray-200">
+                    <p className="text-gray-700 leading-relaxed">{faq.answer}</p>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Download Section */}
       <section id="download" className="py-20" style={{background: `linear-gradient(to right, #8E44AD, #6A3480, #5B2C6F)`}}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="space-y-8">
             <div className="space-y-4">
-              <h2 className="text-4xl font-bold text-white">Master TOEFL Vocabulary Today</h2>
+              <h2 className="text-4xl font-bold text-white">Master TOEFL® Vocabulary Today</h2>
               <p className="text-xl text-purple-100 max-w-3xl mx-auto">
                 This app is perfect for TOEFL test takers, students preparing for English proficiency exams, and anyone who wants to improve their academic English vocabulary quickly and effectively.
               </p>
@@ -165,6 +261,8 @@ function App2Home() {
               <div className="flex space-x-6">
                 <Link to="/TOEFL1001/privacy-policy" className="text-gray-400 hover:text-white transition-colors text-sm">Privacy Policy</Link>
                 <Link to="/TOEFL1001/terms-of-use" className="text-gray-400 hover:text-white transition-colors text-sm">Terms & Conditions</Link>
+                <a href="/TOEFL1001#faq" className="text-gray-400 hover:text-white transition-colors text-sm">FAQ</a>
+                <a href="mailto:appsutk@gmail.com" className="text-gray-400 hover:text-white transition-colors text-sm">Support</a>
               </div>
             </div>
           </div>

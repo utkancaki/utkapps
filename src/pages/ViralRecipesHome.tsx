@@ -1,7 +1,64 @@
-import { ChefHat, Video, Search, Heart, ShoppingCart, Calendar, Download, Star } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { ChefHat, Video, Search, Heart, ShoppingCart, Calendar, Download, Star, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 function ViralRecipesHome() {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+  useEffect(() => {
+    document.title = 'Viral Recipes';
+  }, []);
+
+  const toggleFaq = (index: number) => {
+    setOpenFaq(openFaq === index ? null : index);
+  };
+
+  const faqs = [
+    {
+      question: "Are the recipes real and tested?",
+      answer: "All recipes in Viral Recipes are AI-generated based on trending recipes from social media platforms like TikTok and Instagram. The recipes are designed to help you recreate viral dishes, but we recommend following standard cooking safety practices and adjusting recipes to your taste preferences."
+    },
+    {
+      question: "Is the app free to download?",
+      answer: "Yes, Viral Recipes is free to download from the App Store. The app offers core features at no cost, and there may be optional premium features available through in-app purchases."
+    },
+    {
+      question: "Can I save my favorite recipes?",
+      answer: "Yes! You can save recipes you love and access them anytime. All saved recipes are stored locally on your device, so you can build your personal collection of favorite viral recipes."
+    },
+    {
+      question: "Do recipes include nutritional information?",
+      answer: "Yes, every recipe includes detailed nutritional information including calories, macronutrients, and other dietary information. However, please note that nutritional values are AI-generated and should be used as approximate guidelines."
+    },
+    {
+      question: "Can I use the app offline?",
+      answer: "Once you've loaded recipes, you can view saved recipes offline. However, searching for new recipes and generating content requires an internet connection to access AI services."
+    },
+    {
+      question: "Are the recipes suitable for dietary restrictions?",
+      answer: "Recipes are AI-generated and may not always account for specific dietary restrictions or allergies. We strongly recommend reviewing all ingredients carefully and consulting with a healthcare professional if you have dietary concerns, allergies, or medical conditions before trying any recipe."
+    },
+    {
+      question: "How often are new recipes added?",
+      answer: "The app uses AI to generate recipes based on trending content from social media. You can search for new viral recipes anytime, and the app will provide you with the latest trending dishes from platforms like TikTok and Instagram."
+    },
+    {
+      question: "Can I create a meal plan?",
+      answer: "Yes! The app includes meal planning features that allow you to schedule your weekly meals with viral recipes. You can organize your cooking calendar and plan ahead for the week."
+    },
+    {
+      question: "Do recipes include video instructions?",
+      answer: "Yes, recipes include meal preparation clips showing key techniques from the original viral posts. These short video clips help you understand the cooking process and recreate the dishes more accurately."
+    },
+    {
+      question: "Can I generate a shopping list from recipes?",
+      answer: "Absolutely! The app includes smart grocery list features that automatically add recipe ingredients to your shopping list. This helps ensure you never forget an ingredient when shopping."
+    },
+    {
+      question: "How can I get additional support?",
+      answer: "If you have any questions, concerns, or need additional support, please don't hesitate to reach out to us at appsutk@gmail.com. We're here to help and will respond to your inquiries as soon as possible."
+    }
+  ];
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
@@ -112,6 +169,39 @@ function ViralRecipesHome() {
         </div>
       </section>
 
+      {/* FAQ Section */}
+      <section id="faq" className="py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center space-y-4 mb-16">
+            <h2 className="text-4xl font-bold text-gray-900">Frequently Asked Questions</h2>
+            <p className="text-xl text-gray-600">
+              Everything you need to know about Viral Recipes
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            {faqs.map((faq, index) => (
+              <div key={index} className="border border-gray-200 rounded-lg overflow-hidden">
+                <button
+                  onClick={() => toggleFaq(index)}
+                  className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors"
+                >
+                  <span className="font-semibold text-gray-900 pr-8">{faq.question}</span>
+                  <ChevronDown 
+                    className={`w-5 h-5 text-gray-500 flex-shrink-0 transition-transform ${openFaq === index ? 'transform rotate-180' : ''}`}
+                  />
+                </button>
+                {openFaq === index && (
+                  <div className="px-6 py-4 bg-gray-50 border-t border-gray-200">
+                    <p className="text-gray-700 leading-relaxed">{faq.answer}</p>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Download Section */}
       <section id="download" className="py-20" style={{background: `linear-gradient(to right, #04a539, #038a30, #026b24)`}}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -155,6 +245,8 @@ function ViralRecipesHome() {
               <div className="flex space-x-6">
                 <Link to="/viral-recipes/privacy-policy" className="text-gray-400 hover:text-white transition-colors text-sm">Privacy Policy</Link>
                 <Link to="/viral-recipes/terms-of-use" className="text-gray-400 hover:text-white transition-colors text-sm">Terms & Conditions</Link>
+                <a href="/viral-recipes#faq" className="text-gray-400 hover:text-white transition-colors text-sm">FAQ</a>
+                <a href="mailto:appsutk@gmail.com" className="text-gray-400 hover:text-white transition-colors text-sm">Support</a>
               </div>
             </div>
           </div>

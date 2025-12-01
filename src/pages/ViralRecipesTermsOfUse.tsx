@@ -1,6 +1,10 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 function ViralRecipesTermsOfUse() {
+  useEffect(() => {
+    document.title = 'Viral Recipes';
+  }, []);
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
@@ -181,6 +185,8 @@ function ViralRecipesTermsOfUse() {
               <div className="flex space-x-6">
                 <Link to="/viral-recipes/privacy-policy" className="text-gray-400 hover:text-white transition-colors text-sm">Privacy Policy</Link>
                 <Link to="/viral-recipes/terms-of-use" className="text-gray-400 hover:text-white transition-colors text-sm">Terms & Conditions</Link>
+                <a href="/viral-recipes#faq" className="text-gray-400 hover:text-white transition-colors text-sm">FAQ</a>
+                <a href="mailto:appsutk@gmail.com" className="text-gray-400 hover:text-white transition-colors text-sm">Support</a>
               </div>
             </div>
           </div>

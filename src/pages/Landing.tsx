@@ -1,6 +1,10 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 function Landing() {
+  useEffect(() => {
+    document.title = 'Mobile App';
+  }, []);
   return (
     <div className="min-h-screen bg-white flex items-center justify-center">
       <div className="flex flex-col md:flex-row items-center justify-center gap-12 md:gap-16 px-4">

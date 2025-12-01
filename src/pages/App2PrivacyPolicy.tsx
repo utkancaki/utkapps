@@ -1,6 +1,10 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 function App2PrivacyPolicy() {
+  useEffect(() => {
+    document.title = 'TOEFL1001';
+  }, []);
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
@@ -109,6 +113,8 @@ function App2PrivacyPolicy() {
               <div className="flex space-x-6">
                 <Link to="/TOEFL1001/privacy-policy" className="text-gray-400 hover:text-white transition-colors text-sm">Privacy Policy</Link>
                 <Link to="/TOEFL1001/terms-of-use" className="text-gray-400 hover:text-white transition-colors text-sm">Terms & Conditions</Link>
+                <a href="/TOEFL1001#faq" className="text-gray-400 hover:text-white transition-colors text-sm">FAQ</a>
+                <a href="mailto:appsutk@gmail.com" className="text-gray-400 hover:text-white transition-colors text-sm">Support</a>
               </div>
             </div>
           </div>
