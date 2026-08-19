@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 const ORANGE = '#FF9500';
 const ORANGE_DARK = '#E68600';
+const APP_STORE_URL = 'https://apps.apple.com/us/app/chestmaxx-build-your-chest/id6792489118';
 
 function ChestMaxxHome() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -95,7 +96,10 @@ function ChestMaxxHome() {
               <a href="mailto:appsutk@gmail.com" className="text-gray-400 hover:text-white transition-colors text-sm font-medium hidden md:inline">
                 Support
               </a>
-              <button
+              <a
+                href={APP_STORE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="px-6 py-2 rounded-full text-black font-semibold flex items-center space-x-2 transition-colors"
                 style={{ backgroundColor: ORANGE }}
                 onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = ORANGE_DARK)}
@@ -103,7 +107,7 @@ function ChestMaxxHome() {
               >
                 <Download className="w-4 h-4" />
                 <span>Get Started</span>
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -131,7 +135,7 @@ function ChestMaxxHome() {
               </div>
 
               <div className="flex justify-start">
-                <a href="#" className="hover:opacity-80 transition-opacity transform hover:scale-105">
+                <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity transform hover:scale-105">
                   <img src="/downloadappstore.svg" alt="Download on the App Store" className="h-16" />
                 </a>
               </div>
@@ -252,7 +256,7 @@ function ChestMaxxHome() {
             </div>
 
             <div className="flex justify-center">
-              <a href="#" className="hover:opacity-80 transition-opacity">
+              <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
                 <img src="/downloadappstore.svg" alt="Download on the App Store" className="h-14" />
               </a>
             </div>
